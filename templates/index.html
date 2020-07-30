@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 
 {% block head %}
-<title>stupid FUCKING website</title>
+<title>:)</title>
 {% endblock %}
 
 {% block body %}
 <h1>Griffith Gallery</h1>
+
+{% for imageSrc in imagesSrc %}
+<img src = "{{ imageSrc }}">
+{% endfor %}
+
 {% endblock %}
