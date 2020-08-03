@@ -1,14 +1,40 @@
 {% extends "base.html" %}
 
 {% block head %}
-<title>:)</title>
+<title>Griffith Gallery</title>
 {% endblock %}
 
 {% block body %}
-<h1>Griffith Gallery</h1>
 
-{% for imageSrc in imagesSrc %}
-<img src = "{{ imageSrc }}">
-{% endfor %}
+<h1>Griffith Gallery</h1>
+<!--data-ride marks carousel as animateing on page load.-->
+<div id="griffithCarousel" class="carousel slide" data-ride="carousel">
+    <!--indicates how many slides there are in the carousel and which slide is currently being viewed-->
+    <ol class="carousel-indicators">
+        <li data-target="#griffithCarousel" data-slide-to="{{0}}" class="active"></li>
+        {% for i in range(imagesSrc | length-1) %}
+        <li data-target="#griffithCarousel" data-slide-to="{{i+1}}"></li>
+        {% endfor %}
+    </ol>
+    <!--specifies each slide in a <div>. Must have 1 active slide in order to know which one to start on.-->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="{{ imagesSrc[0] }}" alt="slide 1">
+        </div>
+        {% for i in range(imagesSrc | length-1) %}
+        <div class="item">
+            <img src="{{ imagesSrc[i+1] }}" alt="slide {{i+1}}">
+        </div>
+        {% endfor %}
+        
+    </div>
+       <!-- Controls -->
+  <a class="left carousel-control" href="#griffithCarousel" data-slide="prev">
+    <span class="icon-prev"></span>
+  </a>
+  <a class="right carousel-control" href="#griffithCarousel" data-slide="next">
+    <span class="icon-next"></span>
+  </a>
+</div>
 
 {% endblock %}

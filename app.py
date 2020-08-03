@@ -8,5 +8,7 @@ def index():
     imagesSrc = glob.glob("static/pictures/*")
     return render_template("index.html", imagesSrc = imagesSrc)
 
+
+
 if __name__ == "__main__":
     app.run(debug=True)
