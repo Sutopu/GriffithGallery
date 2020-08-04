@@ -7,8 +7,9 @@
 {% block body %}
 
 <h1>Griffith Gallery</h1>
+{% if imagesSrc | length > 0 %}
 <!--data-ride marks carousel as animateing on page load.-->
-<div id="griffithCarousel" class="carousel slide" data-ride="carousel">
+<div id="griffithCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
     <!--indicates how many slides there are in the carousel and which slide is currently being viewed-->
     <ol class="carousel-indicators">
         <li data-target="#griffithCarousel" data-slide-to="{{0}}" class="active"></li>
@@ -36,5 +37,11 @@
     <span class="icon-next"></span>
   </a>
 </div>
+{% else %}
+<h1>If you're seeing this message, Griffith has done something unspeakably evil and all traces of 
+    him must be erased from this corporeal world. Or maybe there just aren't any pictures of him in the 
+    "pictures" folder. That could be it too. 
+</h1>
+{% endif %}
 
 {% endblock %}
